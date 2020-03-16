@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+{% block title %}{{ page.PageTitle }}{{ parent() }}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign Out</div>
+                </div>
+                <div class="panel-body">
+                    <p>you have been logged out</p>
+                    <a href="/login" class="btn btn-success"> Login Again</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

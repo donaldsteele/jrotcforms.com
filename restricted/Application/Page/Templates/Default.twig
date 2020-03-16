@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+{% block title %}{{ page.PageTitle }}{{ parent() }}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <article class="content Lead Camp Registration-page">
+        <section class="section">
+   <a href="/leadcampform">click here</a>
+        </section>
+    </article>
+
+{% endblock %}
+
+{% block model %}{% endblock %}
+{% block javascript %}{{ parent() }}{% endblock %}

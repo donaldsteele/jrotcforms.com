@@ -1,0 +1,7 @@
+{
+  "minimum-stability": "dev",
+  "require": {
+    "twig/twig": "~1.0",
+    "monolog/monolog": "^2.0@dev"
+  }
+}

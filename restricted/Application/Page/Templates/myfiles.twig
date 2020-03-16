@@ -1,0 +1,95 @@
+{% extends "base.twig" %}
+{% block title %}{{ page.PageTitle }}{{ parent() }}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="row">
+
+        <section class="content">
+            <h1>Table Filter</h1>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success btn-filter" data-target="music">Music
+                                </button>
+                                <button type="button" class="btn btn-warning btn-filter" data-target="video">Video
+                                </button>
+                                <button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="table table-filter table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Size</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for music in page.media.music %}
+                                    <tr data-status="music">
+                                        <td>
+                                            {{ music.name }}
+                                        </td>
+                                        <td>
+                                            {{ music.size }}
+                                        </td>
+                                        <td>
+                                            <p data-placement="top" data-toggle="tooltip" title="Edit">
+                                                <button class="btn btn-primary btn-xs" data-title="Edit"
+                                                        data-toggle="modal" data-target="#edit"><span
+                                                            class="glyphicon glyphicon-pencil"></span></button>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p data-placement="top" data-toggle="tooltip" title="Delete">
+                                                <button class="btn btn-danger btn-xs" data-title="Delete"
+                                                        data-toggle="modal" data-target="#delete"><span
+                                                            class="glyphicon glyphicon-trash"></span></button>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                {% for video in page.media.video %}
+                                    <tr data-status="video">
+                                        <td>
+                                            {{ video.name }}
+                                        </td>
+                                        <td>
+                                            {{ video.size }}
+                                        </td>
+                                        <td>
+                                            <p data-placement="top" data-toggle="tooltip" title="Edit">
+                                                <button class="btn btn-primary btn-xs" data-title="Edit"
+                                                        data-toggle="modal" data-target="#edit"><span
+                                                            class="glyphicon glyphicon-pencil"></span></button>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p data-placement="top" data-toggle="tooltip" title="Delete">
+                                                <button class="btn btn-danger btn-xs" data-title="Delete"
+                                                        data-toggle="modal" data-target="#delete"><span
+                                                            class="glyphicon glyphicon-trash"></span></button>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-footer">
+                    <p>
+                        Page © - 2016 <br>
+                        Powered By <a href="https://www.facebook.com/tavo.qiqe.lucero" target="_blank">TavoQiqe</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+{% endblock %}

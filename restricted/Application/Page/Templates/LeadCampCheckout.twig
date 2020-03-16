@@ -1,0 +1,160 @@
+{% extends "base.twig" %}
+{% block title %}{{ page.PageTitle }}{{ parent() }}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <article class="content Lead Camp Registration-page">
+        <section class="section">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card card-block sameheight-item">
+                        <div class="title-block"><h3 class="title">2020 Lead Camp Registration Form</h3></div>
+                        <form role="form" action="/" method="post">
+                            <div class="row">
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> camper_first_name</span>
+                                    <div class="formvalue">{{ page.formData.camper_first_name }}</div>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> camper_last_name</span>
+                                    <span class="formvalue">{{ page.formData.camper_last_name }}</span>
+                                </div>
+
+
+                                <div class="kvItem  col-md-3">
+                                    <span class="label"> camper_age</span>
+                                    <span class="formvalue">{{ page.formData.camper_age }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> shirtsize</span>
+                                    <span class="formvalue">{{ page.formData.shirtsize }}</span>
+                                </div>
+                            </div>
+         <div class="row">
+                                <div class="kvItem col-md-6">
+                                    <span class="label"> address</span>
+                                    <span class="formvalue">{{ page.formData.address }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-6">
+                                    <span class="label"> address2</span>
+                                    <span class="formvalue">{{ page.formData.address2 }}</span>
+                                </div>
+         </div>
+
+                            <div class="row">
+                                <div class="kvItem col-md-6">
+                                    <span class="label"> city</span>
+                                    <span class="formvalue">{{ page.formData.city }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-4">
+                                    <span class="label"> state</span>
+                                    <span class="formvalue">{{ page.formData.state }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-2">
+                                    <span class="label"> zip</span>
+                                    <span class="formvalue">{{ page.formData.zip }}</span>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> primary_first_name</span>
+                                    <span class="formvalue">{{ page.formData.primary_first_name }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> primary_last_name</span>
+                                    <span class="formvalue">{{ page.formData.primary_last_name }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> phone_number</span>
+                                    <span class="formvalue">{{ page.formData.phone_number }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> email</span>
+                                    <span class="formvalue">{{ page.formData.email }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> emergency_first_name</span>
+                                    <span class="formvalue">{{ page.formData.emergency_first_name }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> emergency_last_name</span>
+                                    <span class="formvalue">{{ page.formData.emergency_last_name }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> emergency_phone_number</span>
+                                    <span class="formvalue">{{ page.formData.emergency_phone_number }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> emergency_email</span>
+                                    <span class="formvalue">{{ page.formData.emergency_email }}</span>
+                                </div>
+                            </div>
+                        <div class="row">
+                                <div class="kvItem col-md-12">
+                                    <span class="label"> camp_duration</span>
+                                    <span class="formvalue">{{ page.formData.camp_duration }}</span>
+                                </div>
+                        </div>
+                            <div class="row">
+                                <div class="kvItem col-md-2">
+                                    <span class="label"> waiver_initials</span>
+                                    <span class="formvalue">{{ page.formData.waiver_initials }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> insurance_company</span>
+                                    <span class="formvalue">{{ page.formData.insurance_company }}</span>
+                                </div>
+
+
+                                <div class="kvItem col-md-3">
+                                    <span class="label"> policy_number</span>
+                                    <span class="formvalue">{{ page.formData.policy_number }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="kvItem">
+                                    <span class="label"> allergies</span>
+                                    <span class="formvalue">{{ page.formData.allergies }}</span>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+{% endblock %}
+
+{% block model %}{% endblock %}
+{% block javascript %}{{ parent() }}{% endblock %}
