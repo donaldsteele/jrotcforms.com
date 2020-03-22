@@ -26,6 +26,9 @@ Class CONFIGURATION
     const NGINX_VIRTUAL_FILE_PATH='/users/';
     const SEND_FILE_STYLE=DOWNLOADTYPE::NGINX_X_Accel;
 
+
+    const DB_STORAGE_PATH = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'restricted' . DIRECTORY_SEPARATOR . 'data.db3';
+
 }
 
 namespace Application\CONFIGURATION;

@@ -8,6 +8,7 @@
  * @author Thibaut Despoulain <http://bkcore.com>
  * @version 1.0
  */
+
 namespace Application\Lib;
 
 use Exception;

@@ -1,10 +1,6 @@
 <?php
+
 namespace Application\Controller;
-
-
-use Application\Enumeration\requestMethod;
-use Application\Lib\HTTP;
-use Application\Page\DefaultPage;
 
 
 class leadcampform extends Base
@@ -22,8 +18,8 @@ class leadcampform extends Base
 
     function go()
     {
-                $page = new \Application\Page\LeadCampForm('LEAD CAMP 2020', false);
-                $page->go();
+        $page = new \Application\Page\LeadCampForm('LEAD CAMP 2020', false);
+        $page->go();
     }
 
 }

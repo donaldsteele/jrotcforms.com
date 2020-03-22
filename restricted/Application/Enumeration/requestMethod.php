@@ -1,4 +1,5 @@
 <?php
+
 namespace Application\Enumeration;
 
 class requestMethod extends Base

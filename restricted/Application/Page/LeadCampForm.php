@@ -9,23 +9,19 @@
 namespace Application\Page;
 
 
-use Application\Enumeration\requestMethod;
-use Application\Lib\HTTP;
-use Application\Lib\Session;
-
 class LeadCampForm extends Base
 {
 
-    function __construct($title,$useCRF)
+    function __construct($title, $useCRF)
     {
 
-        parent::__construct($title, $useCRF);
+        parent::__construct($title, true);
 
     }
 
     function go()
     {
-                parent::render('LeadCampForm.twig');
+        parent::render('LeadCampForm.twig');
     }
 
 }

@@ -1,6 +1,12 @@
 <?php
 namespace Application\Lib;
+
+use Application\Model\Authtokens;
+use Application\Model\AuthtokensQuery;
+use Application\Model\Users;
 use Application\Model\UsersQuery;
+use DateInterval;
+use DateTime;
 
 class Session
 {
@@ -37,33 +43,33 @@ class Session
 
     public function authToken()
     {
-        return $_SESSION['authtoken'] ??  null;
+        return $_SESSION['authtoken'] ?? null;
     }
 
     public function is_logged_in()
     {
-        error_log(print_r($_POST,true));
-        error_log(print_r($_GET,true));
-        if(isset($_POST["authtoken"]) || isset($_GET["authtoken"])) {
+        error_log(print_r($_POST, true));
+        error_log(print_r($_GET, true));
+        if (isset($_POST["authtoken"]) || isset($_GET["authtoken"])) {
             error_log("authtoken is set");
-            $auth = \Application\Model\AuthtokensQuery::create()
+            $auth = AuthtokensQuery::create()
                 ->findOneByToken($_POST["authtoken"] ?? $_GET["authtoken"]);
-            error_log(print_r($auth,true));
-            if (!$auth->isPrimaryKeyNull() && $auth->getCreationdate()->add(new \DateInterval('PT12H')) > new \DateTime()) {
-                $user = \Application\Model\UsersQuery::create()
+            error_log(print_r($auth, true));
+            if (!$auth->isPrimaryKeyNull() && $auth->getCreationdate()->add(new DateInterval('PT12H')) > new DateTime()) {
+                $user = UsersQuery::create()
                     ->findOneByUserid($auth->getUserid());
                 error_log("user is logged in now by authtoken");
                 $_SESSION["logged_in"] = true;
                 $_SESSION['username'] = $user->getUsername();
                 $_SESSION['id'] = $user->getUserid();
-                error_log( "Date Now");
-                error_log( print_r(new \DateTime(),true));
-                error_log( "Token Expires on");
-                error_log(print_r($auth->getCreationdate()->add(new \DateInterval('PT4H')),true));
+                error_log("Date Now");
+                error_log(print_r(new DateTime(), true));
+                error_log("Token Expires on");
+                error_log(print_r($auth->getCreationdate()->add(new DateInterval('PT4H')), true));
             } else {
                 error_log("failed date check");
-                error_log(print_r($auth->getCreationdate()->add(new \DateInterval('PT30M')),true));
-                error_log( print_r(new \DateTime(),true));
+                error_log(print_r($auth->getCreationdate()->add(new DateInterval('PT30M')), true));
+                error_log(print_r(new DateTime(), true));
             }
         }
         return $_SESSION["logged_in"] ?? null;
@@ -87,17 +93,17 @@ class Session
         if ($users->count() == 1) {
             $user = $users->getFirst();
             /***
-             * @var $user \Application\Model\Users
+             * @var $user Users
              */
             $db_pw_hash = $user->getPassword();
             if (password_verify($password, $db_pw_hash) === true) {
                 $_SESSION["logged_in"] = true;
                 $_SESSION['username'] = $username;
                 $_SESSION['id'] = $user->getUserid();
-                $_SESSION['authtoken']=bin2hex(random_bytes(16));
+                $_SESSION['authtoken'] = bin2hex(random_bytes(16));
 
-                $auth = new \Application\Model\Authtokens();
-                $auth->setUserid($_SESSION['id']) ;
+                $auth = new Authtokens();
+                $auth->setUserid($_SESSION['id']);
                 $auth->setToken($_SESSION['authtoken']);
                 $auth->save();
                 return true;

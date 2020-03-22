@@ -1,10 +1,11 @@
 <?php
+
 namespace Application\Controller;
 
 
 use Application\Enumeration\requestMethod;
 use Application\Lib\HTTP;
-use Application\Page\DefaultPage;
+use Exception;
 
 
 class leadcampcheckout extends Base
@@ -22,21 +23,18 @@ class leadcampcheckout extends Base
 
     function go()
     {
-
+/* TODO: add crf verification */
         try {
             if (HTTP::requestMethod() == requestMethod::POST) {
-               // var_export($_POST);
-              //  foreach ($_POST as $k => $v) {
-              //      print '\''.$k.'\'' . '=> $_POST[\''. $k . '\'] ?? "",' . "\n";
-              //  }
+                $t = new \Application\Model\Table\leadcampform();
+                $page = new \Application\Page\LeadCampCheckout('Checkout', true);
+                $page->AddPageVariable('formData', $this->get_post_vars());
 
-                $page = new \Application\Page\LeadCampCheckout('Checkout', false);
-                $page->AddPageVariable('formData',$this->get_post_vars());
                 $page->go();
             } else {
                 HTTP::Redirect('/');
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
         }
 
     }

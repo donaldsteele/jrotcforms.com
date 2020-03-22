@@ -1,11 +1,13 @@
 <?php
+
 namespace Application\Controller;
 
 
+use Application\Interfaces\iController;
 use Application\Lib\StatusPage;
 use Exception;
 
-class Base implements \Application\Interfaces\iController
+class Base implements iController
 {
     protected $_arguments;
 

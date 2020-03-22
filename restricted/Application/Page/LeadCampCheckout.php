@@ -9,14 +9,10 @@
 namespace Application\Page;
 
 
-use Application\Enumeration\requestMethod;
-use Application\Lib\HTTP;
-use Application\Lib\Session;
-
 class LeadCampCheckout extends Base
 {
 
-    function __construct($title,$useCRF)
+    function __construct($title, $useCRF)
     {
 
         parent::__construct($title, $useCRF);
@@ -25,7 +21,8 @@ class LeadCampCheckout extends Base
 
     function go()
     {
-                parent::render('LeadCampCheckout.twig');
+
+        parent::render('LeadCampCheckout.twig');
     }
 
 }

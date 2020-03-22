@@ -9,14 +9,10 @@
 namespace Application\Page;
 
 
-use Application\Enumeration\requestMethod;
-use Application\Lib\HTTP;
-use Application\Lib\Session;
-
 class DefaultPage extends Base
 {
 
-    function __construct($title,$useCRF)
+    function __construct($title, $useCRF)
     {
 
         parent::__construct($title, $useCRF);
@@ -25,7 +21,7 @@ class DefaultPage extends Base
 
     function go()
     {
-                parent::render('Default.twig');
+        parent::render('Default.twig');
     }
 
 }

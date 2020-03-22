@@ -1,9 +1,8 @@
 <?php
+
 namespace Application\Controller;
 
 
-use Application\Enumeration\requestMethod;
-use Application\Lib\HTTP;
 use Application\Page\DefaultPage;
 
 
@@ -22,8 +21,8 @@ class DefaultController extends Base
 
     function go()
     {
-                $page = new DefaultPage('Index', false);
-                $page->go();
+        $page = new DefaultPage('Index', false);
+        $page->go();
     }
 
 }

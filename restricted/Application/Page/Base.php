@@ -27,6 +27,21 @@ class Base
         $this->AddSecurityVariable('csrfToken', NoCSRF::generate('csrf_token'));
     }
 
+    public function AddPageVariable($key, $value)
+    {
+        $this->_pageVariables[$key] = $value;
+    }
+
+    public function AddSecurityVariable($key, $value)
+    {
+        $this->_pageSecurityVariables[$key] = $value;
+    }
+
+    public Function AddScriptVariable($value)
+    {
+        $this->_pageScriptVariables[] = $value;
+    }
+
     protected function render($template)
     {
 
@@ -47,22 +62,6 @@ class Base
         $body = $twig->loadTemplate($template);
         $templateVars = ['page' => $this->_pageVariables, 'scripts' => $this->_pageScriptVariables, 'security' => $this->_pageSecurityVariables];
         print $body->render($templateVars);
-    }
-
-
-    public function AddPageVariable($key, $value)
-    {
-        $this->_pageVariables[$key] = $value;
-    }
-
-    public Function AddScriptVariable($value)
-    {
-        $this->_pageScriptVariables[] = $value;
-    }
-
-    public function AddSecurityVariable($key, $value)
-    {
-        $this->_pageSecurityVariables[$key] = $value;
     }
 
 }

@@ -71,28 +71,17 @@ class SendFile
     }
 
     /**
-     * get name from path info
-     * @param string $file
-     * @return mixed
-     */
-    private function name($file)
-    {
-        $info = pathinfo($file);
-        return $info['basename'];
-    }
-
-    /**
      * Sets-up headers and starts transferring bytes
      *
      * @param string $file_path
      * @param boolean $withDisposition
-     * @throws \Exception
+     * @throws Exception
      */
     public function send($file_path, $withDisposition = TRUE)
     {
 
         if (!is_readable($file_path)) {
-            throw new \Exception('File not found or inaccessible!');
+            throw new Exception('File not found or inaccessible!');
         }
         $size = filesize($file_path);
         if (!$this->disposition) {
@@ -156,9 +145,20 @@ class SendFile
             }
             fclose($file);
         } else {
-            throw new \Exception('Error - can not open file.');
+            throw new Exception('Error - can not open file.');
         }
         die();
+    }
+
+    /**
+     * get name from path info
+     * @param string $file
+     * @return mixed
+     */
+    private function name($file)
+    {
+        $info = pathinfo($file);
+        return $info['basename'];
     }
 
     /**
